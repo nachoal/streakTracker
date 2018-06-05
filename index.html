@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Streaks</title>
+	<script src="popup.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+	
+<style>
+
+	@import url('https://fonts.googleapis.com/css?family=Lato');
+	@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+	html{
+		height: 100%;
+	}
+
+	body{
+		text-align: center;
+		/* ackground-color: #112378;*/
+		color: white;
+		font-family: 'lato', 'sans-serif';
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fff5f8+0,ffcfbf+0,fff4f8+0,ffeae9+0,ffa480+0,ff9b73+0,ff8c76+23,ff7873+40,ff6c75+57,ff5773+76,ff4f75+87,ff4b74+89,ff4d75+89,ff4075+100 */
+		background: #fff5f8; /* Old browsers */
+		background: -moz-linear-gradient(top, #fff5f8 0%, #ffcfbf 0%, #fff4f8 0%, #ffeae9 0%, #ffa480 0%, #ff9b73 0%, #ff8c76 23%, #ff7873 40%, #ff6c75 57%, #ff5773 76%, #ff4f75 87%, #ff4b74 89%, #ff4d75 89%, #ff4075 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, #fff5f8 0%,#ffcfbf 0%,#fff4f8 0%,#ffeae9 0%,#ffa480 0%,#ff9b73 0%,#ff8c76 23%,#ff7873 40%,#ff6c75 57%,#ff5773 76%,#ff4f75 87%,#ff4b74 89%,#ff4d75 89%,#ff4075 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, #fff5f8 0%,#ffcfbf 0%,#fff4f8 0%,#ffeae9 0%,#ffa480 0%,#ff9b73 0%,#ff8c76 23%,#ff7873 40%,#ff6c75 57%,#ff5773 76%,#ff4f75 87%,#ff4b74 89%,#ff4d75 89%,#ff4075 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff5f8', endColorstr='#ff4075',GradientType=0 ); /* IE6-9 */
+
+	}
+	div {
+		font-size: 50px;
+		
+	}
+
+	#title {
+		font-size: 45px;
+		
+	}
+
+	.streak{
+		width: 100px;
+		height: 100px;
+		background-color: green;
+		float: left;
+		margin:  ;
+
+		border-style: solid;
+    	border-width: 1.5px; 
+	}
+
+	.streak p {
+		margin-top: 20px;
+	}
+
+
+
+	#startDate {
+		border-radius: 10px;
+		border-style: none;
+		height: 50px;
+		width: 250px;
+		font-family: 'lato', 'sans-serif';
+		text-align: center;
+		font-size: 20px;
+		color: #FF6674;
+
+
+	}
+
+	#checkDate {
+		border-radius: 10px;
+		border-style: solid;
+		border-color: white;
+		border-width: 1px;
+		background-color: #FF9973;
+		height: 50px;
+		width: 150px;
+		font-family: 'lato', 'sans-serif';
+		text-align: center;
+		font-size: 20px;
+		color: white;
+		font-weight: bolder;
+
+
+	}
+
+	#checkDate:hover {
+		border-radius: 10px;
+		border-style: solid;
+		border-color: white;
+		border-width: 1px;
+		background-color: white;
+		height: 50px;
+		width: 150px;
+		font-family: 'lato', 'sans-serif';
+		text-align: center;
+		font-size: 20px;
+		color: #FF6674;
+		font-weight: bolder;
+		cursor: pointer; 
+		cursor: hand; 
+
+
+	}
+
+	#StopStreak {
+		border-radius: 10px;
+		border-style: solid;
+		border-color: white;
+		border-width: 1px;
+		background-color: #FF9973;
+		height: 50px;
+		width: 150px;
+		font-family: 'lato', 'sans-serif';
+		text-align: center;
+		font-size: 20px;
+		color: white;
+		font-weight: bolder;
+		
+		
+
+
+	}
+
+	#StopStreak:hover {
+		border-radius: 10px;
+		border-style: solid;
+		border-color: white;
+		border-width: 1px;
+		background-color: white;
+		height: 50px;
+		width: 150px;
+		font-family: 'lato', 'sans-serif';
+		text-align: center;
+		font-size: 20px;
+		color: #FF6674;
+		font-weight: bolder;
+		cursor: pointer; 
+		cursor: hand; 
+
+
+	}
+
+	footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   
+}
+
+.brand{
+	font-family: 'Lobster', cursive;
+}
+
+#brand-main{
+	font-size: 70px;
+}
+
+</style>
+
+</head>
+<body>
+
+	<h1 class="brand" id="brand-main">STREAK TRACKER</h1>
+
+	<input type="date" id="startDate">
+
+	<button id="checkDate">Send</button> 
+	<button id="StopStreak">Reset</button>
+
+	<h1 id="title">You've been in a <span class="brand">STREAK</span> for:</h1>
+	<div id="time" >
+		<h1>Zero Days</h1>
+	</div>
+	<!-- <h2>You have a goal of 100 days</h2> -->
+	<!-- <h1 id="timeLeft"></h1>
+	<h2 id="timeLeftTwo"></h2> -->
+
+	<footer>Suggest new feautures or report bugs here: <a href="https://twitter.com/ignacioaal">@ignacioaal</a></footer>
+
+
+	<div id="calendar"></div>
+
+
+	<script src="script.js"></script>	
+</body>
+</html>
